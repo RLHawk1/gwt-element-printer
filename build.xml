@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="gwt-element-printer" default="all" basedir=".">
+        <property name="gwt.element-printer.artifactId" value="gwt-element-printer"/>
+        <property name="gwt.element-printer.version" value="0.1"/>
+        <property name="gwt.element-printer.packaging" value="jar"/>
+        <property name="gwt.element-printer.artifactFileName" value="${gwt.element-printer.artifactId}-${gwt.element-printer.version}.${gwt.element-printer.packaging}"/>
+
+        <path id="project.class.path">
+                <pathelement path="${java.class.path}/"/>
+                <pathelement path="${gwt.lib.path}/gwt-user.jar"/>
+        </path>
+
+        <target name="compile">
+                <mkdir dir="target"/>
+                <mkdir dir="target/classes"/>
+                <javac includeantruntime="false" srcdir="src" destdir="target/classes" includes="**" debug="on" debuglevel="lines,vars,source" source="1.6">
+                        <classpath refid="project.class.path"/>
+                </javac>
+        </target>
+
+        <target name="package" depends="compile" description="Package up gwt-element-printer as a jar">
+                <tstamp>
+                   <format property="build.time" pattern="dd-MM-yyyy HH:mm" />
+                </tstamp>
+                <jar destfile="target/${gwt.element-printer.artifactFileName}">
+                        <fileset dir="target/classes">
+                                <include name="**/*.class" />
+                        </fileset>
+                        <fileset dir="src">
+                                <include name="**" />
+                        </fileset>
+                        <manifest>
+                                <attribute name="Artifact-Id" value="${gwt.element-printer.artifactId}" />
+                                <attribute name="Artifact-Version" value="${gwt.element-printer.version}" />
+                                <attribute name="Build-Time" value="${build.time}" />
+                        </manifest>
+                </jar>
+        </target>
+
+        <target name="clean">
+                <delete dir="target" includeemptydirs="true" />
+        </target>
+
+        <target name="all" depends="package"/>
+</project>
