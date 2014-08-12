@@ -7,7 +7,7 @@ import com.google.gwt.dom.client.OptionElement;
 import com.google.gwt.dom.client.SelectElement;
 import com.google.gwt.dom.client.TextAreaElement;
 import com.google.gwt.user.client.DOM;
-import com.google.gwt.user.client.Element;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 
@@ -33,7 +33,7 @@ public class ElementPrinter {
 		}
 				
 		doc = doc +"</head><body>"
-				+DOM.toString(e)
+				+e.getString()
 				+"</body></html>";
 
 		_initPrintFrame(doc);
