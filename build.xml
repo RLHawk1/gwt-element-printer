@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <project name="gwt-element-printer" default="all" basedir=".">
         <property name="gwt.element-printer.artifactId" value="gwt-element-printer"/>
-        <property name="gwt.element-printer.version" value="0.1"/>
+        <property name="gwt.element-printer.version" value="0.2"/>
         <property name="gwt.element-printer.packaging" value="jar"/>
         <property name="gwt.element-printer.artifactFileName" value="${gwt.element-printer.artifactId}-${gwt.element-printer.version}.${gwt.element-printer.packaging}"/>
 
